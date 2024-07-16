@@ -15,7 +15,7 @@ datasource db {
 
 model referral{
   id Int @id @default(autoincrement())
-  referralCode String @unique
+  referralCode String 
   referrerName String
   referrerEmail String
   refereeName String

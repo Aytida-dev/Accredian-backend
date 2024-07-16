@@ -1,10 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
 const { sendMail } = require('./gmail');
+
 
 const prisma = new PrismaClient();
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 
@@ -45,7 +48,7 @@ app.post("/createReferral", async (req, res) => {
     try {
         const referralCode = `${referrerName.slice(0, 3)}@${referrerEmail.split('@')[0]}_${courseName.slice(0, 3)}`;
 
-        const referreral = await prisma.referral.create({
+        const referral = await prisma.referral.create({
             data: {
                 refereeEmail,
                 refereeName,
@@ -62,7 +65,7 @@ app.post("/createReferral", async (req, res) => {
 
         res.status(201).json({
             message: "Referral created successfully",
-            referreral
+            referral
         })
 
     } catch (error) {
