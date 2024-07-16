@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "prod": "npx pm2 start index.js"
+    "prod": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,6 @@
     "express": "^4.19.2",
     "nodemailer": "^6.9.14",
     "nodemon": "^3.1.4",
-    "pm2": "^5.4.2",
     "prisma": "^5.16.2"
   }
 }
